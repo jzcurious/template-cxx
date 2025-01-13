@@ -13,14 +13,14 @@ FetchContent_MakeAvailable(dep)
 file(GLOB_RECURSE SRC
     ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
 )
-add_library(proj-lib STATIC ${SRC})
+add_library(proj STATIC ${SRC})
 
-target_compile_definitions(proj-lib PRIVATE
+target_compile_definitions(proj PRIVATE
     "DEBUG=$<CONFIG:Debug>"
 )
-target_include_directories(proj-lib PUBLIC
+target_include_directories(proj PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/include/
 )
-target_link_libraries(proj-lib PUBLIC
+target_link_libraries(proj PUBLIC
     dep
 )
